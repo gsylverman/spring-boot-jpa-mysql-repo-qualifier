@@ -3,7 +3,9 @@ package com.gavril.contoller;
 
 import com.gavril.model.Student;
 import com.gavril.service.StudentService;
+import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -27,7 +29,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student addStudent(@RequestBody Student student) {
+    public Student addStudent(@Validated @NotNull @RequestBody Student student) {
         return studentService.addStudent(student);
     }
 
