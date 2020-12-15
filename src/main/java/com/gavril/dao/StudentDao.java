@@ -1,6 +1,6 @@
 package com.gavril.dao;
 
-import com.gavril.entity.Student;
+import com.gavril.model.Student;
 
 import java.util.Collection;
 

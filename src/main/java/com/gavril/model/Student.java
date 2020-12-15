@@ -1,4 +1,6 @@
-package com.gavril.entity;
+package com.gavril.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,7 +15,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, String name, String tech) {
+    public Student(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("tech") String tech) {
         this.id = id;
         this.name = name;
         this.tech = tech;

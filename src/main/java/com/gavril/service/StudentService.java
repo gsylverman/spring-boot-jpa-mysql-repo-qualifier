@@ -1,7 +1,7 @@
 package com.gavril.service;
 
 import com.gavril.dao.StudentDao;
-import com.gavril.entity.Student;
+import com.gavril.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,12 @@ import java.util.Collection;
 @Service
 public class StudentService {
 
-    @Autowired
-    @Qualifier("mySqlStudent")
     private StudentDao studentDao;
+
+    @Autowired
+    public StudentService(@Qualifier("mySqlStudent") StudentDao studentDao) {
+        this.studentDao = studentDao;
+    }
 
     public Collection<Student> getAllStudents() {
         return studentDao.getAllStudents();

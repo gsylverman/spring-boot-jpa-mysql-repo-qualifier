@@ -1,6 +1,6 @@
 package com.gavril.dao;
 
-import com.gavril.entity.Student;
+import com.gavril.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -11,8 +11,13 @@ import java.util.Collection;
 @Qualifier("mySqlStudent")
 public class MySqlStudentDao implements StudentDao {
 
-    @Autowired
     StudentMySqlRepoI studentMySqlRepoI;
+
+    @Autowired
+    public MySqlStudentDao(StudentMySqlRepoI studentMySqlRepoI) {
+        this.studentMySqlRepoI = studentMySqlRepoI;
+    }
+
 
     @Override
     public Collection<Student> getAllStudents() {
